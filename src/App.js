@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./Components/Header";
+import Animetree from "./Components/Animetree";
+import Mangatree from "./Components/Mangatree";
+import { Route, Routes, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="mainpage">
+      <Header />
+      <div className="mainpagebody">
+        <div>
+          <h1 className="treeheader">Are you a watcher or a reader today?</h1>
+          <div className="chooseyourpath">
+            <Link to="/anime">Anime</Link>
+            <Link to="/manga">Manga</Link>
+          </div>
+          <Routes>
+            <Route path="/anime" element={<Animetree />} />
+            <Route path="/manga" element={<Mangatree />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
