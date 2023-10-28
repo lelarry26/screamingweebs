@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 
-function Playlistcheck({ onSelect }) {
-   const [halloween, setHalloween] = useState(false);
-
-   const handleSelection = () => {
-      onSelect(halloween);
-   }
+function Playlistcheck({ halloweenPlaylist }) {
+   //halloweenPlaylist prop is passed to set if halloween selection is made or not to set true or false.
+   const [isHalloween, setIsHalloween] = useState(false);
    return (
-      <div>
+      <div className="playlistcheck">
          <h2>Want to be spooked?</h2>
          <label>
             <input
                type="radio"
                value="Yes!"
-               checked={halloween}
-               onChange={() => setHalloween(true)}
+               checked={isHalloween}
+               onChange={() => setIsHalloween(true)}
             />
             Scare me
          </label>
@@ -22,12 +19,12 @@ function Playlistcheck({ onSelect }) {
             <input
                type="radio"
                value="No!"
-               checked={!halloween}
-               onChange={() => setHalloween(false)}
+               checked={!isHalloween}
+               onChange={() => setIsHalloween(false)}
             />
             Don't scare me bro!
          </label>
-         <button onClick={handleSelection}>Select</button>
+         <button onClick={() => halloweenPlaylist(isHalloween) }>Select</button>
       </div>
    );
 }
