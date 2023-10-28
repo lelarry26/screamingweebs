@@ -5,20 +5,20 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 
 function Header({ setSelectedResultData }) {
-  const fetchTopAnime = () => {
+  const fetchUpcomingAnime = () => {
     fetch("https://api.jikan.moe/v4/top/anime?sfw&filter=upcoming")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Top Anime Data:", data);
+        console.log("Upcoming Anime Data:", data);
         setSelectedResultData(data.data);
       });
   };
 
-  const fetchTopManga = () => {
-    fetch("https://api.jikan.moe/v4/top/manga?sfw&filter=upcoming")
+  const fetchPopularManga = () => {
+    fetch("https://api.jikan.moe/v4/top/manga?sfw")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Top Manga Data:", data);
+        console.log("Popular Manga Data:", data);
         setSelectedResultData(data.data);
       });
   };
@@ -43,7 +43,7 @@ function Header({ setSelectedResultData }) {
 
   return (
     <Navbar expand="lg" className="headercss">
-      <Navbar.Brand className="headerimage" href="#home">
+      <Navbar.Brand className="headerimage" href="/">
         <img
           src="https://static.wikia.nocookie.net/filthy-frank/images/7/76/Weeaboo_Jones.png"
           width="100"
@@ -51,20 +51,42 @@ function Header({ setSelectedResultData }) {
           alt="Your Logo"
         />
       </Navbar.Brand>
-      <Container>
-        <Nav className="me-auto">
-          <div className="centered-text">
-            <Button href="/">SCREAMING WEEB HOME</Button>
-            <Button onClick={fetchTopAnime} type="submit" value="Submit">
-              Top Anime
+      <Container className="linkcontainer">
+        <Nav className="centered-text">
+          <div>
+            <Button variant="outline-success" href="/">
+              SCREAMING WEEB HOME
             </Button>
-            <Button onClick={fetchTopManga} type="submit" value="Submit">
-              Top Manga
+            <Button
+              variant="outline-success"
+              onClick={fetchUpcomingAnime}
+              type="submit"
+              value="Submit"
+            >
+              Upcoming Anime
             </Button>
-            <Button onClick={fetchAiringAnime} type="submit" value="Submit">
+            <Button
+              variant="outline-success"
+              onClick={fetchPopularManga}
+              type="submit"
+              value="Submit"
+            >
+              Popular Manga
+            </Button>
+            <Button
+              variant="outline-success"
+              onClick={fetchAiringAnime}
+              type="submit"
+              value="Submit"
+            >
               Airing Anime
             </Button>
-            <Button onClick={fetchPublishingManga} type="submit" value="Submit">
+            <Button
+              variant="outline-success"
+              onClick={fetchPublishingManga}
+              type="submit"
+              value="Submit"
+            >
               Publishing Manga
             </Button>
           </div>

@@ -1,44 +1,42 @@
-html, body {
+html,
+body {
   background-color: #734f9a;
 }
+
+/* header */
 .headercss {
   background-color: #8bd450;
   width: 100vw;
 }
-
-.centered-text .nav-link {
+.centered-text button {
   display: inline-block;
-  margin-right: 20px;
-  text-align: center;
+  margin: 0 10px;
 }
 
+/* body */
 .mainpagebody {
   background-color: #734f9a;
   padding: 20px;
   margin: 0;
 }
-
 .card {
   margin: 10px;
   background-color: #3f6d4e;
 }
-
 .card .card-text {
   max-height: 150px;
   overflow: scroll;
 }
-
 .treeheader {
   text-align: center;
 }
-
 .chooseyourpath {
   display: flex;
   justify-content: space-evenly;
 }
-
 .genreselection,
-.playlistcheck, .card {
+.playlistcheck,
+.card, .linkcontainer{
   display: flex;
   flex-direction: column;
   align-items: center;
